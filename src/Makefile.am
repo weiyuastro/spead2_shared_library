@@ -15,7 +15,13 @@
 
 include $(srcdir)/Makefile.inc.am
 
-lib_LIBRARIES = libspead2.a
+#changed by weiyu
+#lib_LIBRARIES = libspead2.a
+lib_LTLIBRARIES = libspead2.la
+
+#added by weiyu
+libspead2_la_LDFLAGS = -module -avoid-version -shared
+
 bin_PROGRAMS = spead2_recv spead2_send spead2_bench
 check_PROGRAMS = spead2_unittest
 TESTS = spead2_unittest
@@ -59,7 +65,8 @@ spead2_unittest_SOURCES = \
 spead2_unittest_CPPFLAGS = -DBOOST_TEST_DYN_LINK $(AM_CPPFLAGS)
 spead2_unittest_LDADD = -lboost_unit_test_framework $(LDADD)
 
-libspead2_a_SOURCES = \
+#changed by weiyu
+libspead2_la_SOURCES = \
 	common_flavour.cpp \
 	common_loader_ibv.cpp \
 	common_loader_mlx5dv.cpp \
