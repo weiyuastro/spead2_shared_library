@@ -21,6 +21,10 @@ AC_CONFIG_SRCDIR([src/common_logging.cpp])
 AC_CONFIG_MACRO_DIRS([m4])
 AM_INIT_AUTOMAKE([foreign])
 AC_PROG_CXX
+
+#added by weiyu
+AC_PROG_LIBTOOL
+
 AC_CHECK_TOOL(AR, ar, :)
 AC_PROG_RANLIB
 AC_ARG_VAR(AR, [Static library archiver command])
